@@ -1,0 +1,51 @@
+# 1. Importar as bibliotecas necessárias:
+
+import pygame # pygame: Essa biblioteca é essencial para criar jogos em Python. Ela permite lidar com gráficos, som, eventos e muito mais.
+import random # random: Usaremos essa biblioteca para gerar números aleatórios para a posição inicial da comida e para escolher uma direção aleatória no início do jogo.
+
+# 2. Inicializar o pygame:
+
+pygame.init() # Essa linha inicializa todas as submódulos do pygame.
+
+# 3. Definir as cores:
+
+# Vamos usar essas cores para o fundo, a cobra e a comida.
+white = (255, 255, 255)
+black = (0, 0, 0)
+red = (255, 0, 0)
+
+# 4. Definir as dimensões da tela:
+
+# Aqui definimos o tamanho da tela e o título da janela do jogo.
+dis_width = 600
+dis_height = 400
+dis = pygame.display.set_mode((dis_width, dis_height))
+pygame.display.set_caption('Jogo da Cobrinha')
+
+# 5. Criar a função para desenhar a cobra:
+
+# Essa função desenha cada bloco da cobra na tela.
+def snake(block_size, snakelist):
+    for x in snakelist:
+        pygame.draw.rect(dis, black, [x[0], x[1], block_size, block_size])
+
+# Código completo até aqui (para você começar a brincar):
+
+# Aqui você vai adicionar o código para:
+# - Criar a cobra inicial
+# - Gerar a comida
+# - Controlar o movimento da cobra
+# - Detectar colisões
+# - Atualizar a tela
+# - Criar um loop principal do jogo
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            quit()
+
+    # Desenhar a tela
+    dis.fill(white)
+    snake(10, [[100, 100]])  # Desenhando uma cobra inicial
+    pygame.display.update()
